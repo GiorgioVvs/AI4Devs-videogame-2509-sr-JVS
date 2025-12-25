@@ -2,7 +2,7 @@
 
 ## Phase 1: Foundational Setup
 - [x] Task: Create project skeleton (HTML/CSS/JS files) in `worminator-JVS/` [3216de3]
-- [ ] Task: Set up Canvas and basic rendering loop
+- [x] Task: Set up Canvas and basic rendering loop [dd34117]
 - [ ] Task: Conductor - User Manual Verification 'Foundational Setup' (Protocol in workflow.md)
 
 ## Phase 2: Worm Movement and Growth
