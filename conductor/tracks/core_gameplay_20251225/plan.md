@@ -1,6 +1,6 @@
 # Track Plan: Core Gameplay Infrastructure and Movement
 
-## Phase 1: Foundational Setup
+## Phase 1: Foundational Setup [checkpoint: dbbe88c]
 - [x] Task: Create project skeleton (HTML/CSS/JS files) in `worminator-JVS/` [3216de3]
 - [x] Task: Set up Canvas and basic rendering loop [dd34117]
 - [ ] Task: Conductor - User Manual Verification 'Foundational Setup' (Protocol in workflow.md)
