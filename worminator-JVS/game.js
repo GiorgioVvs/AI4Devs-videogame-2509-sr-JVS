@@ -15,14 +15,24 @@ export class Game {
       y: 300,
       dx: GRID_SIZE,
       dy: 0,
-      isJumping: false
+      isJumping: false,
+      segments: []
     };
+    
+    this.spawnPrey();
 
     this.loop = this.loop.bind(this);
   }
 
   start() {
     requestAnimationFrame(this.loop);
+  }
+
+  spawnPrey() {
+    this.prey = {
+      x: Math.floor(Math.random() * (this.width / GRID_SIZE)) * GRID_SIZE,
+      y: Math.floor(Math.random() * (this.height / GRID_SIZE)) * GRID_SIZE
+    };
   }
 
   triggerJump() {
@@ -39,16 +49,45 @@ export class Game {
   }
 
   update() {
+    const headX = this.worm.x;
+    const headY = this.worm.y;
+
     this.worm.x += this.worm.dx;
     this.worm.y += this.worm.dy;
+
+    // Check collision with prey
+    let atePrey = false;
+    if (this.worm.x === this.prey.x && this.worm.y === this.prey.y) {
+      atePrey = true;
+      this.spawnPrey();
+    }
+
+    // Update segments
+    // Add new segment at previous head position
+    this.worm.segments.unshift({ x: headX, y: headY });
+    
+    // If we didn't eat, remove the tail to maintain length
+    if (!atePrey) {
+      this.worm.segments.pop();
+    }
   }
 
   draw() {
     this.context.fillStyle = '#000';
     this.context.fillRect(0, 0, this.width, this.height);
     
-    // Draw worm
+    // Draw Prey
+    this.context.fillStyle = '#f00';
+    this.context.fillRect(this.prey.x, this.prey.y, GRID_SIZE, GRID_SIZE);
+
+    // Draw worm head
     this.context.fillStyle = this.worm.isJumping ? '#0ff' : '#0f0'; // Cyan if jumping, Green otherwise
     this.context.fillRect(this.worm.x, this.worm.y, GRID_SIZE, GRID_SIZE);
+
+    // Draw worm segments
+    this.context.fillStyle = this.worm.isJumping ? '#0aa' : '#0a0'; // Darker for body
+    this.worm.segments.forEach(segment => {
+      this.context.fillRect(segment.x, segment.y, GRID_SIZE, GRID_SIZE);
+    });
   }
 }
