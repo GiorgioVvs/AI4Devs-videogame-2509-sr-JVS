@@ -1,3 +1,5 @@
+import { InputHandler } from './InputHandler.js';
+
 export const GRID_SIZE = 20;
 
 export class Game {
@@ -12,13 +14,14 @@ export class Game {
     
     this.worm = {
       x: 400,
-      y: 300,
-      dx: GRID_SIZE,
+      y: 500, // Start in Earth zone (bottom 1/3)
+      dx: 0,
       dy: 0,
       isJumping: false,
       segments: []
     };
     
+    this.inputHandler = new InputHandler(this);
     this.spawnPrey();
 
     this.loop = this.loop.bind(this);
@@ -54,6 +57,11 @@ export class Game {
 
     this.worm.x += this.worm.dx;
     this.worm.y += this.worm.dy;
+
+    // Boundary Check (Earth Zone Bottom)
+    if (this.worm.y > this.height - GRID_SIZE) {
+      this.worm.y = this.height - GRID_SIZE;
+    }
 
     // Check collision with prey
     let atePrey = false;

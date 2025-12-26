@@ -16,15 +16,16 @@ describe('Worm Movement', () => {
   test('Worm should have an initial position and direction', () => {
     expect(game.worm).toBeDefined();
     expect(game.worm.x).toBe(400);
-    expect(game.worm.y).toBe(300);
-    expect(game.worm.dx).toBe(GRID_SIZE);
+    expect(game.worm.y).toBe(500); // Earth zone
+    expect(game.worm.dx).toBe(0); // Stationary start
     expect(game.worm.dy).toBe(0);
   });
 
   test('Worm should update position based on velocity', () => {
+    game.worm.dx = GRID_SIZE; // Set velocity manually
     game.update();
     expect(game.worm.x).toBe(400 + GRID_SIZE);
-    expect(game.worm.y).toBe(300);
+    expect(game.worm.y).toBe(500);
   });
 
   test('Worm should change direction correctly', () => {
@@ -32,7 +33,7 @@ describe('Worm Movement', () => {
     game.worm.dy = GRID_SIZE;
     game.update();
     expect(game.worm.x).toBe(400);
-    expect(game.worm.y).toBe(300 + GRID_SIZE);
+    expect(game.worm.y).toBe(500 + GRID_SIZE);
   });
 
   test('Worm should have an isJumping property initialized to false', () => {
