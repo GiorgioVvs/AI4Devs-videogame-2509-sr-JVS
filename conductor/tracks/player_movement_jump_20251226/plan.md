@@ -1,10 +1,10 @@
 # Track Plan: Player Input, Zoned Movement, and Jumping
 
-## Phase 1: Input Handling and Horizontal Movement
+## Phase 1: Input Handling and Horizontal Movement [checkpoint: db666f1]
 - [x] Task: Write Tests: Input mapping and horizontal movement logic [2e86f1a]
 - [x] Task: Implement Feature: `InputHandler` class for arrow key tracking [2e86f1a]
 - [x] Task: Implement Feature: Ground-based horizontal movement with Earth zone boundaries [2e86f1a]
-- [ ] Task: Conductor - User Manual Verification 'Input Handling and Horizontal Movement' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Input Handling and Horizontal Movement' (Protocol in workflow.md) [db666f1]
 
 ## Phase 2: Jumping Physics and Zoned Layout
 - [ ] Task: Write Tests: Jump arc, gravity, and vertical velocity logic
