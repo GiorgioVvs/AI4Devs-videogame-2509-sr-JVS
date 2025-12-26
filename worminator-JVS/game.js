@@ -28,7 +28,7 @@ export class Game {
     };
     
     this.gravity = 0.5;
-    this.jumpStrength = -10;
+    this.jumpStrength = -18; // Increased to ensure reach into Air zone
     this.airDriftFactor = 0.5;
 
     this.inputHandler = new InputHandler(this);
