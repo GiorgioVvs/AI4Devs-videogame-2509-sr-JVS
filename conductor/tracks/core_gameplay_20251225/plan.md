@@ -10,6 +10,6 @@
 - [x] Task: Implement Feature: Basic worm movement [4295cf5]
 - [x] Task: Write Tests: Worm surfacing/jumping logic [25c24b0]
 - [x] Task: Implement Feature: Surfacing/jumping mechanic [25c24b0]
-- [ ] Task: Write Tests: Prey spawning and collision logic
-- [ ] Task: Implement Feature: Prey consumption and worm growth
+- [x] Task: Write Tests: Prey spawning and collision logic [051895e]
+- [x] Task: Implement Feature: Prey consumption and worm growth [051895e]
 - [ ] Task: Conductor - User Manual Verification 'Worm Movement and Growth' (Protocol in workflow.md)
