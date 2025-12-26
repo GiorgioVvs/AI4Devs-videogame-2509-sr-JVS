@@ -1,0 +1,20 @@
+# Track Plan: Player Input, Zoned Movement, and Jumping
+
+## Phase 1: Input Handling and Horizontal Movement
+- [x] Task: Write Tests: Input mapping and horizontal movement logic [2e86f1a]
+- [x] Task: Implement Feature: `InputHandler` class for arrow key tracking [2e86f1a]
+- [x] Task: Implement Feature: Ground-based horizontal movement with Earth zone boundaries [2e86f1a]
+- [ ] Task: Conductor - User Manual Verification 'Input Handling and Horizontal Movement' (Protocol in workflow.md)
+
+## Phase 2: Jumping Physics and Zoned Layout
+- [ ] Task: Write Tests: Jump arc, gravity, and vertical velocity logic
+- [ ] Task: Implement Feature: Gravity and vertical movement (Jump)
+- [ ] Task: Implement Feature: Reduced horizontal speed (Air Drift) during jump
+- [ ] Task: Implement Feature: Define visual/logical thresholds for Earth, Surface, and Air zones
+- [ ] Task: Conductor - User Manual Verification 'Jumping Physics and Zoned Layout' (Protocol in workflow.md)
+
+## Phase 3: Zoned Gameplay Logic
+- [ ] Task: Write Tests: Zoned prey spawning and consumption logic
+- [ ] Task: Implement Feature: Restrict prey spawning to the Surface zone
+- [ ] Task: Implement Feature: Restrict prey consumption to the Surface zone
+- [ ] Task: Conductor - User Manual Verification 'Zoned Gameplay Logic' (Protocol in workflow.md)
