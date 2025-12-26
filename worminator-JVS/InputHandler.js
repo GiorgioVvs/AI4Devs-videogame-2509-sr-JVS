@@ -26,9 +26,18 @@ export class InputHandler {
       this.game.worm.dx = 0;
     }
 
-    // Jump
-    if (this.keys['ArrowUp']) {
-      this.game.triggerJump();
+    // Vertical Movement
+    if (this.keys['ArrowDown']) {
+        this.game.worm.dy = GRID_SIZE;
+    } else if (this.keys['ArrowUp']) {
+        // If we are deep in earth, move up. If at surface/boundary, Jump.
+        if (this.game.worm.y > this.game.zones.earth) {
+             this.game.worm.dy = -GRID_SIZE;
+        } else {
+             this.game.triggerJump();
+        }
+    } else if (!this.game.worm.isJumping) {
+        this.game.worm.dy = 0;
     }
   }
 }

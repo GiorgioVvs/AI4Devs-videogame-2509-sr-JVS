@@ -75,7 +75,8 @@ export class Game {
       this.worm.dy += this.gravity;
       
       // Landing check: if falling and hit the Earth zone boundary
-      if (this.worm.dy > 0 && this.worm.y >= this.zones.earth) {
+      // We only land if we were jumping/falling AND we hit the specific surface-earth boundary
+      if (this.worm.dy > 0 && this.worm.y >= this.zones.earth && this.worm.y <= this.zones.earth + GRID_SIZE) { // Tolerance check
         this.worm.y = this.zones.earth;
         this.worm.dy = 0;
         this.worm.isJumping = false;
@@ -84,6 +85,9 @@ export class Game {
 
     // Boundary Check (Earth Zone)
     if (!this.worm.isJumping) {
+      // Allow moving down (y > earth zone top)
+      // Only restrict moving UP past earth zone top (unless jumping, which is handled by InputHandler/triggerJump)
+      // Actually, standard movement shouldn't pass top of earth unless jumping.
       if (this.worm.y < this.zones.earth) {
         this.worm.y = this.zones.earth;
       }
