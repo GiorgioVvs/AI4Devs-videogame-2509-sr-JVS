@@ -15,7 +15,7 @@
 - [x] Task: Conductor - User Manual Verification 'Jumping Physics and Zoned Layout' (Protocol in workflow.md) [c4577df]
 
 ## Phase 3: Zoned Gameplay Logic
-- [ ] Task: Write Tests: Zoned prey spawning and consumption logic
+- [x] Task: Write Tests: Zoned prey spawning and consumption logic [f1042c9]
 - [x] Task: Implement Feature: Restrict prey spawning to the Surface zone [33e13dd]
-- [ ] Task: Implement Feature: Restrict prey consumption to the Surface zone
+- [x] Task: Implement Feature: Restrict prey consumption to the Surface zone [f1042c9]
 - [ ] Task: Conductor - User Manual Verification 'Zoned Gameplay Logic' (Protocol in workflow.md)
