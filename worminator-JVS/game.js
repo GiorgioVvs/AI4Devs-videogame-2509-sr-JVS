@@ -12,15 +12,25 @@ export class Game {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     
+    this.zones = {
+      air: 0,
+      surface: this.height / 3,
+      earth: (this.height / 3) * 2
+    };
+
     this.worm = {
       x: 400,
-      y: 500, // Start in Earth zone (bottom 1/3)
+      y: 400, // Top of Earth zone
       dx: 0,
       dy: 0,
       isJumping: false,
       segments: []
     };
     
+    this.gravity = 0.5;
+    this.jumpStrength = -10;
+    this.airDriftFactor = 0.5;
+
     this.inputHandler = new InputHandler(this);
     this.spawnPrey();
 
@@ -39,10 +49,10 @@ export class Game {
   }
 
   triggerJump() {
-    this.worm.isJumping = true;
-    setTimeout(() => {
-      this.worm.isJumping = false;
-    }, 1000); // Reset after 1 second for now
+    if (!this.worm.isJumping) {
+      this.worm.isJumping = true;
+      this.worm.dy = this.jumpStrength;
+    }
   }
 
   loop() {
@@ -55,26 +65,46 @@ export class Game {
     const headX = this.worm.x;
     const headY = this.worm.y;
 
-    this.worm.x += this.worm.dx;
+    // Apply movement
+    const currentDx = this.worm.isJumping ? this.worm.dx * this.airDriftFactor : this.worm.dx;
+    this.worm.x += currentDx;
     this.worm.y += this.worm.dy;
 
-    // Boundary Check (Earth Zone Bottom)
-    if (this.worm.y > this.height - GRID_SIZE) {
-      this.worm.y = this.height - GRID_SIZE;
+    // Apply gravity
+    if (this.worm.isJumping) {
+      this.worm.dy += this.gravity;
+      
+      // Landing check: if falling and hit the Earth zone boundary
+      if (this.worm.dy > 0 && this.worm.y >= this.zones.earth) {
+        this.worm.y = this.zones.earth;
+        this.worm.dy = 0;
+        this.worm.isJumping = false;
+      }
     }
+
+    // Boundary Check (Earth Zone)
+    if (!this.worm.isJumping) {
+      if (this.worm.y < this.zones.earth) {
+        this.worm.y = this.zones.earth;
+      }
+      if (this.worm.y > this.height - GRID_SIZE) {
+        this.worm.y = this.height - GRID_SIZE;
+      }
+    }
+
+    // Horizontal boundaries
+    if (this.worm.x < 0) this.worm.x = 0;
+    if (this.worm.x > this.width - GRID_SIZE) this.worm.x = this.width - GRID_SIZE;
 
     // Check collision with prey
     let atePrey = false;
-    if (this.worm.x === this.prey.x && this.worm.y === this.prey.y) {
+    if (Math.abs(this.worm.x - this.prey.x) < GRID_SIZE && Math.abs(this.worm.y - this.prey.y) < GRID_SIZE) {
       atePrey = true;
       this.spawnPrey();
     }
 
     // Update segments
-    // Add new segment at previous head position
     this.worm.segments.unshift({ x: headX, y: headY });
-    
-    // If we didn't eat, remove the tail to maintain length
     if (!atePrey) {
       this.worm.segments.pop();
     }
@@ -84,6 +114,14 @@ export class Game {
     this.context.fillStyle = '#000';
     this.context.fillRect(0, 0, this.width, this.height);
     
+    // Draw Zones
+    this.context.fillStyle = '#111'; // Air
+    this.context.fillRect(0, 0, this.width, this.height / 3);
+    this.context.fillStyle = '#222'; // Surface
+    this.context.fillRect(0, this.height / 3, this.width, this.height / 3);
+    this.context.fillStyle = '#333'; // Earth
+    this.context.fillRect(0, (this.height / 3) * 2, this.width, this.height / 3);
+
     // Draw Prey
     this.context.fillStyle = '#f00';
     this.context.fillRect(this.prey.x, this.prey.y, GRID_SIZE, GRID_SIZE);
