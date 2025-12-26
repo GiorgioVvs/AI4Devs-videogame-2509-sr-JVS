@@ -16,6 +16,6 @@
 
 ## Phase 3: Zoned Gameplay Logic
 - [ ] Task: Write Tests: Zoned prey spawning and consumption logic
-- [ ] Task: Implement Feature: Restrict prey spawning to the Surface zone
+- [x] Task: Implement Feature: Restrict prey spawning to the Surface zone [33e13dd]
 - [ ] Task: Implement Feature: Restrict prey consumption to the Surface zone
 - [ ] Task: Conductor - User Manual Verification 'Zoned Gameplay Logic' (Protocol in workflow.md)
