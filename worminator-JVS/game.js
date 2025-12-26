@@ -111,7 +111,13 @@ export class Game {
 
     // Check collision with prey
     let atePrey = false;
-    if (Math.abs(this.worm.x - this.prey.x) < GRID_SIZE && Math.abs(this.worm.y - this.prey.y) < GRID_SIZE) {
+    const inSurfaceZone = this.worm.y >= this.zones.air && this.worm.y < this.zones.earth;
+    
+    // We only check collision if we are in the Surface Zone (or maybe logic is "can only EAT if in surface zone")
+    // Spec: "Prey can ONLY be consumed if the worm's head is within the 'Surface' zone."
+    // Also, prey is only spawned in Surface. But we need to enforce the consumption rule too (e.g. if prey bugged).
+    
+    if (inSurfaceZone && Math.abs(this.worm.x - this.prey.x) < GRID_SIZE && Math.abs(this.worm.y - this.prey.y) < GRID_SIZE) {
       atePrey = true;
       this.spawnPrey();
     }
