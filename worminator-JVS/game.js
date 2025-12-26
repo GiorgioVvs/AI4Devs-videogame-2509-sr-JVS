@@ -14,7 +14,8 @@ export class Game {
       x: 400,
       y: 300,
       dx: GRID_SIZE,
-      dy: 0
+      dy: 0,
+      isJumping: false
     };
 
     this.loop = this.loop.bind(this);
@@ -22,6 +23,13 @@ export class Game {
 
   start() {
     requestAnimationFrame(this.loop);
+  }
+
+  triggerJump() {
+    this.worm.isJumping = true;
+    setTimeout(() => {
+      this.worm.isJumping = false;
+    }, 1000); // Reset after 1 second for now
   }
 
   loop() {
@@ -39,8 +47,8 @@ export class Game {
     this.context.fillStyle = '#000';
     this.context.fillRect(0, 0, this.width, this.height);
     
-    // Draw worm (optional but good for visual debugging, though tests don't check it yet)
-    this.context.fillStyle = '#0f0';
+    // Draw worm
+    this.context.fillStyle = this.worm.isJumping ? '#0ff' : '#0f0'; // Cyan if jumping, Green otherwise
     this.context.fillRect(this.worm.x, this.worm.y, GRID_SIZE, GRID_SIZE);
   }
 }

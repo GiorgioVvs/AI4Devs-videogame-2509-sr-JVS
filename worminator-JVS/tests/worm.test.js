@@ -34,4 +34,13 @@ describe('Worm Movement', () => {
     expect(game.worm.x).toBe(400);
     expect(game.worm.y).toBe(300 + GRID_SIZE);
   });
+
+  test('Worm should have an isJumping property initialized to false', () => {
+    expect(game.worm.isJumping).toBe(false);
+  });
+
+  test('triggerJump should set isJumping to true', () => {
+    game.triggerJump();
+    expect(game.worm.isJumping).toBe(true);
+  });
 });
