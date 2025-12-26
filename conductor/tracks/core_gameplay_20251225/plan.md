@@ -6,8 +6,8 @@
 - [ ] Task: Conductor - User Manual Verification 'Foundational Setup' (Protocol in workflow.md)
 
 ## Phase 2: Worm Movement and Growth
-- [ ] Task: Write Tests: Worm position and movement logic
-- [ ] Task: Implement Feature: Basic worm movement
+- [x] Task: Write Tests: Worm position and movement logic [67280ad]
+- [x] Task: Implement Feature: Basic worm movement [4295cf5]
 - [ ] Task: Write Tests: Worm surfacing/jumping logic
 - [ ] Task: Implement Feature: Surfacing/jumping mechanic
 - [ ] Task: Write Tests: Prey spawning and collision logic

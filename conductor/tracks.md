@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-## [ ] Track: Core Gameplay Infrastructure and Movement
+## [~] Track: Core Gameplay Infrastructure and Movement
 *Link: [./conductor/tracks/core_gameplay_20251225/](./conductor/tracks/core_gameplay_20251225/)*
