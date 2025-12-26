@@ -31,6 +31,7 @@ export class InputHandler {
         this.game.worm.dy = GRID_SIZE;
     } else if (this.keys['ArrowUp']) {
         // If we are deep in earth, move up. If at surface/boundary, Jump.
+        // Boundary is this.game.zones.earth
         if (this.game.worm.y > this.game.zones.earth) {
              this.game.worm.dy = -GRID_SIZE;
         } else {

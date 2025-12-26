@@ -42,9 +42,18 @@ export class Game {
   }
 
   spawnPrey() {
+    // Restrict to Surface Zone
+    // Surface starts at this.zones.surface (200) and ends at this.zones.earth (400)
+    // Random Y between 200 and 380 (assuming 20px grid)
+    
+    const minGridY = this.zones.surface / GRID_SIZE;
+    const maxGridY = (this.zones.earth / GRID_SIZE) - 1;
+    
+    const randomGridY = Math.floor(Math.random() * (maxGridY - minGridY + 1)) + minGridY;
+
     this.prey = {
       x: Math.floor(Math.random() * (this.width / GRID_SIZE)) * GRID_SIZE,
-      y: Math.floor(Math.random() * (this.height / GRID_SIZE)) * GRID_SIZE
+      y: randomGridY * GRID_SIZE
     };
   }
 
