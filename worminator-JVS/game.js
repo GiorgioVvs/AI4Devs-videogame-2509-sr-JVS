@@ -31,6 +31,8 @@ export class Game {
     this.jumpStrength = -18; // Increased to ensure reach into Air zone
     this.airDriftFactor = 0.5;
 
+    this.score = 0;
+
     this.inputHandler = new InputHandler(this);
     this.spawnPrey();
 
@@ -119,6 +121,7 @@ export class Game {
     
     if (inSurfaceZone && Math.abs(this.worm.x - this.prey.x) < GRID_SIZE && Math.abs(this.worm.y - this.prey.y) < GRID_SIZE) {
       atePrey = true;
+      this.score++;
       this.spawnPrey();
     }
 
