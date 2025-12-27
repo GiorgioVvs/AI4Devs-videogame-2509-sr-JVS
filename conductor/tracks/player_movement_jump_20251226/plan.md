@@ -14,8 +14,8 @@
 - [x] Task: Fix: Enable vertical movement (digging) within Earth zone [48b8998]
 - [x] Task: Conductor - User Manual Verification 'Jumping Physics and Zoned Layout' (Protocol in workflow.md) [c4577df]
 
-## Phase 3: Zoned Gameplay Logic
+## Phase 3: Zoned Gameplay Logic [checkpoint: 023202b]
 - [x] Task: Write Tests: Zoned prey spawning and consumption logic [f1042c9]
 - [x] Task: Implement Feature: Restrict prey spawning to the Surface zone [33e13dd]
 - [x] Task: Implement Feature: Restrict prey consumption to the Surface zone [f1042c9]
-- [ ] Task: Conductor - User Manual Verification 'Zoned Gameplay Logic' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Zoned Gameplay Logic' (Protocol in workflow.md) [023202b]
