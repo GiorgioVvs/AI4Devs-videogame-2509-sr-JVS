@@ -32,6 +32,7 @@ export class Game {
     this.airDriftFactor = 0.5;
 
     this.score = 0;
+    this.scoreElement = document.getElementById('score-display');
 
     this.inputHandler = new InputHandler(this);
     this.spawnPrey();
@@ -122,6 +123,9 @@ export class Game {
     if (inSurfaceZone && Math.abs(this.worm.x - this.prey.x) < GRID_SIZE && Math.abs(this.worm.y - this.prey.y) < GRID_SIZE) {
       atePrey = true;
       this.score++;
+      if (this.scoreElement) {
+        this.scoreElement.textContent = `Score: ${this.score}`;
+      }
       this.spawnPrey();
     }
 

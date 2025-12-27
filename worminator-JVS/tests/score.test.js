@@ -69,3 +69,63 @@ describe('Score System', () => {
     expect(game.score).toBe(initialScore + 1);
   });
 });
+
+describe('Score UI', () => {
+  let game;
+  let scoreElement;
+
+  beforeEach(() => {
+    // Setup DOM with score element
+    document.body.innerHTML = `
+      <div id="game-container" style="position: relative;">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="score-display">Score: 0</div>
+      </div>
+    `;
+    scoreElement = document.getElementById('score-display');
+    
+    HTMLCanvasElement.prototype.getContext = jest.fn(() => ({
+      fillStyle: '',
+      fillRect: jest.fn(),
+    }));
+    game = new Game('gameCanvas');
+  });
+
+  test('Score display should exist', () => {
+    expect(scoreElement).not.toBeNull();
+  });
+
+  test('Score display should update when score changes', () => {
+    // Manually trigger an update (simulating game loop/prey eat)
+    // We need to know HOW the game updates the UI.
+    // Likely in game.update() or a specific setter/method.
+    // For now, let's assume game.update() handles it or triggers it.
+    
+    // Force score change logic
+    // game.score = 5; // Removed to start from 0
+    
+    // We might need to call a method to sync UI, or wait for next frame/update.
+    // Let's assume 'update' or 'draw' handles it. 
+    // Usually UI updates might happen in 'draw' or specifically when score changes.
+    // Let's call game.draw() as that's where rendering happens, 
+    // BUT DOM updates are usually separate from canvas draw.
+    // Let's call game.update() (where logic happens) and game.draw().
+    // If the implementation puts it in a setter for score, it would happen immediately.
+    // If it puts it in update/draw loop, we need to call those.
+    
+    // Let's call game.update();
+    // But game.update() calculates score. It doesn't necessarily take "5" and put it in UI unless we force it.
+    // Let's simulate eating prey which triggers the increment AND the UI update.
+    
+    // Move worm to prey to trigger eat
+    game.worm.x = 100;
+    game.worm.y = 300;
+    game.worm.isJumping = true; // surface zone
+    game.prey = { x: 100, y: 300 };
+    
+    game.update(); // Should eat and increment to 1
+    
+    expect(game.score).toBe(1);
+    expect(scoreElement.textContent).toBe('Score: 1');
+  });
+});
