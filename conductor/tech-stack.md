@@ -12,3 +12,5 @@ This document outlines the technologies used in the Worminator project.
 
 ## Tooling & Utilities
 - **Python:** A helper script (`index-videogames.py`) is used to maintain the project's game index.
+- **Jest:** JavaScript testing framework used for unit and integration testing of game logic.
+- **Babel:** JavaScript compiler used to support modern JS modules in the testing environment.

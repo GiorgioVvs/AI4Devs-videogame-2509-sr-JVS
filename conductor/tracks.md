@@ -4,5 +4,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-## [~] Track: Core Gameplay Infrastructure and Movement
-*Link: [./conductor/tracks/core_gameplay_20251225/](./conductor/tracks/core_gameplay_20251225/)*
+
+---
+
+## [~] Track: Player Input, Zoned Movement, and Jumping
+*Link: [./conductor/tracks/player_movement_jump_20251226/](./conductor/tracks/player_movement_jump_20251226/)*
