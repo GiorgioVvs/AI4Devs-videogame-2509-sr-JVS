@@ -30,4 +30,5 @@ canvas {
     padding: 5px 10px;
     border-radius: 5px;
     pointer-events: none;
+    z-index: 10;
 }
