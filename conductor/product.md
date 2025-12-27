@@ -5,7 +5,9 @@ A very basic "snake" variant where you control a worm that comes jumps  out to t
 Worminator is a dynamic twist on the classic "Snake" mechanic. Players control a worm that must surface to consume various types of prey. The core gameplay loop focuses on growth and survival, with different prey types adding layers of strategy and risk-reward decision-making.
 
 # Core Mechanics
-- **Surface Action:** The worm jumps to the surface to catch prey, creating a rhythmic and engaging movement pattern.
+- **Zoned Gameplay:** The world is divided into three layers: Earth (movement), Surface (feeding), and Air (peak jump).
+- **Physics-Based Movement:** Gravity affects jumps, and horizontal control is reduced in the air ("Air Drift"), requiring precise timing.
+- **Controls:** Intuitive arrow key navigation (Left/Right to move, Up to jump).
 - **Growth System:** Consuming prey increases the worm's length and score, increasing the difficulty as the worm becomes harder to maneuver.
 
 # Prey Types

@@ -7,5 +7,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-## [~] Track: Player Input, Zoned Movement, and Jumping
-*Link: [./conductor/tracks/player_movement_jump_20251226/](./conductor/tracks/player_movement_jump_20251226/)*
+
+---
+
+## [~] Track: Basic Score System
+*Link: [./conductor/tracks/score_system_20251227/](./conductor/tracks/score_system_20251227/)*
